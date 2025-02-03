@@ -1,1 +1,1 @@
-ls -p | grep -vE '^\.|/$' | paste -sd ',' -
+ls -1 | grep -v "^\." | tr '\n' ',' && echo
