@@ -1,0 +1,48 @@
+body {
+    height: 100%;
+    margin: 0px;
+}
+
+.parallax {
+    height: 100%;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.parallax1 {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/800px-Large_breaking_wave.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: end;
+}
+
+.parallax2 {
+    background-image: url("https://64.media.tumblr.com/a48e07815d4d1c4c594b6f18fa6bcb1b/7c84ae7f06aa1b34-60/s540x810/d6bfa486da35ff9fc6bc4271cb8071ed0d9be4cb.gif");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.warning {
+    height: 60%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.warning h1 {
+    color: red;
+}
+
+h1 {
+    margin: 10%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: aliceblue;
+}
