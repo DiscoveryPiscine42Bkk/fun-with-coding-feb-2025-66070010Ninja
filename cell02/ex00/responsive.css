@@ -1,0 +1,34 @@
+body {
+    margin: 0%;
+}
+
+table {
+    margin: 0%;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    border: 3px solid black;
+    height: 200px;
+}
+
+.td01 {
+    background-color: antiquewhite;
+    width: 60%;
+}
+
+.td02 {
+    background-color: aquamarine;
+    width: 40%;
+}
+
+h1 {
+    padding: 10px;
+}
+
+@media screen and (max-width:699px) {
+    td {
+        height: 100px;
+    }
+}
