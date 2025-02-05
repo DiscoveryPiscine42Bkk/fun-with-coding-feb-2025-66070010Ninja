@@ -1,17 +1,23 @@
-.dropdown {
-    display: inline-block;
-    position: relative;
+body {
+    margin: 0;
 }
 
 .menu {
-    display: none;
+    text-align: center;
+    background-color: rgb(189, 172, 248);
+    margin-top: 25%;
+    width: 220px;
+    height: 50px;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.dropdown:hover .menu {
-    display: block;
-}
-
-.menu h1 {
-    display: block;
+label, select {
+    margin-top: 10px;
     font-size: 20px;
+}
+
+select {
+    background-color: rgb(202, 193, 211);
 }
