@@ -1,0 +1,17 @@
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.menu {
+    display: none;
+}
+
+.dropdown:hover .menu {
+    display: block;
+}
+
+.menu h1 {
+    display: block;
+    font-size: 20px;
+}
