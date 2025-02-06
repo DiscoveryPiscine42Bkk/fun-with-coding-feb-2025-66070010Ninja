@@ -25,18 +25,18 @@
     <div onmouseleave="reduceBallon()" onclick="growBallon()" class="ball"
         style="width: 200px; height: 200px; background-color: red;"></div>
     <script>
-        let count = 0;
+        let count = false;
         function growBallon() {
             const ball = document.getElementsByClassName("ball")[0];
 
             if (parseInt(ball.style.width) > 420) {
                 ball.style.width = "200px";
                 ball.style.height = "200px";
-                count = 0;
+                count = false;
             } else {
                 ball.style.width = (parseInt(ball.style.width) + 10) + 'px';
                 ball.style.height = (parseInt(ball.style.height) + 10) + 'px';
-                count += 1;
+                count = true;
             }
 
             if (ball.style.backgroundColor == "red") {
@@ -54,10 +54,10 @@
             if (parseInt(ball.style.width) > 200) {
                 ball.style.width = (parseInt(ball.style.width) - 5) + 'px';
                 ball.style.height = (parseInt(ball.style.height) - 5) + 'px';
-                if (ball.style.backgroundColor == "red" && count != 0) {
+                if (ball.style.backgroundColor == "red" && count) {
                     ball.style.backgroundColor = "green";
                 }
-                else if (ball.style.backgroundColor == "blue" && count != 0) {
+                else if (ball.style.backgroundColor == "blue" && count) {
                     ball.style.backgroundColor = "red";
                 }
                 else {
