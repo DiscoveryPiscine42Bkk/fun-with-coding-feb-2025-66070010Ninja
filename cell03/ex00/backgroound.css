@@ -1,0 +1,16 @@
+.button {
+    text-align: center;
+    margin-top: 25%;
+}
+
+button {
+    height: 50px;
+    width: 100px;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+button:hover {
+    background-color: black;
+    color: aliceblue;
+}
