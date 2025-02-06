@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>balloon</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        .ball {
+            border-radius: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ball" style="width: 200px; height: 200px; background-color: red;"></div>
+    <script>
+        $(document).ready(function () {
+            let count = false;
+
+            $(".ball").on("click", function (event) {
+                let ball = $(this);
+                console.log(ball.css("background-color"));
+
+                if (parseInt(ball.css("width")) > 420) {
+                    ball.css("width", "200px");
+                    ball.css("height", "200px");
+                    count = false;
+                } else {
+                    ball.css("width", ball.width() + 10);
+                    ball.css("height", ball.height() + 10);
+                    count = true;
+                }
+
+                if (ball.css("background-color") == "rgb(255, 0, 0)") {
+                    ball.css("background-color", "blue");
+                }
+                else if (ball.css("background-color") == "rgb(0, 0, 255)") {
+                    ball.css("background-color", "green");
+                }
+                else {
+                    ball.css("background-color", "red");
+                }
+            });
+
+            $(".ball").on("mouseleave", function (event) {
+                let ball = $(this);
+                if (parseInt(ball.css("width")) > 200) {
+                    ball.css("width", ball.width() - 5);
+                    ball.css("height", ball.height() - 5);
+
+                    if (ball.css("background-color") == "rgb(0, 128, 0)" && count) {
+                        ball.css("background-color", "blue");
+                    }
+                    else if (ball.css("background-color") == "rgb(0, 0, 255)" && count) {
+                        ball.css("background-color", "red");
+                    }
+                    else if (ball.css("background-color") == "rgb(255, 0, 0)" && count) {
+                        ball.css("background-color", "green");
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
