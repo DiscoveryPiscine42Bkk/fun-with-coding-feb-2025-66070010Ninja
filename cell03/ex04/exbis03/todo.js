@@ -1,60 +1,50 @@
-$(document).ready(function () {
+$(document).ready(function() {
+    loadTodos();
 
-    loadTasks();
-
-    $("button").on("click", function (event) {
-        const taskName = prompt("Enter a new task name:");
-        if (taskName !== null && taskName.trim() !== "") {
-            addTask(taskName);
-            saveTasksToCookie();
-        }
-    });
-
-    function addTask(name) {
-        const taskList = $("#ft_list");
-        const taskContainer = $("<ul>");
-        const taskData = $("<li>");
-
-        taskData.text(name);
-        taskContainer.addClass("todo-item");
-        taskContainer.on("click", function (event) {
-            const isDelete = confirm("Do you want to delete this task?");
-            if (isDelete) {
-                deleteTask(taskContainer);
-                saveTasksToCookie();
-            }
-        });
-        taskContainer.append(taskData);
-        taskList.prepend(taskContainer);
-    }
-
-    function deleteTask(taskId) {
-        taskId.remove();
-    }
-
-    function saveTasksToCookie() {
-        const taskList = $("#ft_list");
-        const tasks = [];
-
-        taskList.children().each(function () {
-            if ($(this).prop("tagName") === "UL") {
-                tasks.push($(this).children(":first").text());
-            }
-        });
-
-        document.cookie = "tasks=" + JSON.stringify(tasks);
-    }
-
-    function loadTasks() {
-        const cookies = document.cookie.replace("tasks=[", "").replace("]", "").replace(/"/g, '').split(",");
-        console.log(cookies);
-
-        if (cookies[0] != "") {
-            for (let i = cookies.length - 1; i >= 0; i--) {
-                addTask(cookies[i])
-                console.log(cookies[i]);
-
-            }
+    function newTodo() {
+        let task = prompt("Enter a new task name:");
+        if (task) {
+            addTodo(task, true);
+            saveTodos();
         }
     }
+
+    function addTodo(task, isNew = false) {
+        let list = $("#ft_list");
+        let newTask = $("<div>").addClass("todo").text(task).click(function() {
+            removeTodo($(this));
+        });
+
+        if (isNew) {
+            list.prepend(newTask);
+        } else {
+            list.append(newTask);
+        }
+        saveTodos();
+    }
+
+    function removeTodo(todo) {
+        if (confirm("Do you want to delete this task?")) {
+            todo.remove();
+            saveTodos();
+        }
+    }
+
+    function saveTodos() {
+        let todolist = [];
+        $(".todo").each(function() {
+            todolist.push($(this).text());
+        });
+        localStorage.setItem("todolist", JSON.stringify(todolist));
+    }
+
+    function loadTodos() {
+        let storedTodos = localStorage.getItem("todolist");
+        if (storedTodos) {
+            let todolist = JSON.parse(storedTodos);
+            todolist.forEach(task => addTodo(task, false));
+        }
+    }
+
+    $("button").click(newTodo);
 });

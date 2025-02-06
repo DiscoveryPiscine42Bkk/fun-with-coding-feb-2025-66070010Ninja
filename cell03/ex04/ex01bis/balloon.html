@@ -30,9 +30,9 @@
 
             $(".ball").on("click", function (event) {
                 let ball = $(this);
-                console.log(ball.css("background-color"));
+                console.log(ball.css("width"));
 
-                if (parseInt(ball.css("width")) > 420) {
+                if (parseInt(ball.css("width")) + 10 > 420) {
                     ball.css("width", "200px");
                     ball.css("height", "200px");
                     count = false;

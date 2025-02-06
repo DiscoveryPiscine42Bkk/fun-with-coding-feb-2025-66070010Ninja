@@ -59,7 +59,7 @@
                 let operator = $("#operator").val();
                 let right = $("#rightOperand").val();
 
-                if (left === "" || right === "" || left < 0 || right < 0 || isNaN(left) || isNaN(right)) {
+                if (left === "" || right === "" || left < 0 || right < 0 || isNaN(left) || isNaN(right) || left.includes(".") || right.includes(".")) {
                     alert("Error :(");
                     return;
                 }
