@@ -37,7 +37,7 @@
 
 <body>
     <div>
-        <input type="number" id="leftOperand" min="0" placeholder="Enter number">
+        <input type="text" id="leftOperand" min="0" placeholder="Enter number">
         <select id="operator">
             <option selected disabled>select operand</option>
             <option value="+">+</option>
@@ -46,7 +46,7 @@
             <option value="/">/</option>
             <option value="%">%</option>
         </select>
-        <input type="number" id="rightOperand" min="0" placeholder="Enter number">
+        <input type="text" id="rightOperand" min="0" placeholder="Enter number">
         <button onclick="calculate()">Try me!</button>
     </div>
 
@@ -56,7 +56,7 @@
             let operator = document.getElementById("operator").value;
             let right = document.getElementById("rightOperand").value;
 
-            if (left === "" || right === "" || left < 0 || right < 0) {
+            if (left === "" || right === "" || left < 0 || right < 0 || isNaN(left) || isNaN(right)) {
                 alert("Error :(");
                 return;
             }
