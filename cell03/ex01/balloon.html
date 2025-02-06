@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>balloon</title>
+    <style>
+        .ball {
+            border-radius: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div onmouseleave="reduceBallon()" onclick="growBallon()" class="ball"
+        style="width: 200px; height: 200px; background-color: red;"></div>
+    <script>
+        let count = 0;
+        function growBallon() {
+            const ball = document.getElementsByClassName("ball")[0];
+
+            if (parseInt(ball.style.width) > 420) {
+                ball.style.width = "200px";
+                ball.style.height = "200px";
+                count = 0;
+            } else {
+                ball.style.width = (parseInt(ball.style.width) + 10) + 'px';
+                ball.style.height = (parseInt(ball.style.height) + 10) + 'px';
+                count += 1;
+            }
+
+            if (ball.style.backgroundColor == "red") {
+                ball.style.backgroundColor = "blue";
+            }
+            else if (ball.style.backgroundColor == "blue") {
+                ball.style.backgroundColor = "green";
+            }
+            else {
+                ball.style.backgroundColor = "red";
+            }
+        }
+        function reduceBallon() {
+            const ball = document.getElementsByClassName("ball")[0];
+            if (parseInt(ball.style.width) > 200) {
+                ball.style.width = (parseInt(ball.style.width) - 5) + 'px';
+                ball.style.height = (parseInt(ball.style.height) - 5) + 'px';
+                if (ball.style.backgroundColor == "red" && count != 0) {
+                    ball.style.backgroundColor = "green";
+                }
+                else if (ball.style.backgroundColor == "blue" && count != 0) {
+                    ball.style.backgroundColor = "red";
+                }
+                else {
+                    ball.style.backgroundColor = "blue";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
