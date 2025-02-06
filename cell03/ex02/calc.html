@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        button {
+            font-size: 20px;
+        }
+
+        select {
+            font-size: 20px;
+        }
+
+        input {
+            font-size: 20px;
+        }
+
+        select:hover, button:hover {
+            color: white;
+            background-color: black;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="number" id="leftOperand" min="0" placeholder="Enter number">
+        <select id="operator">
+            <option selected disabled>select operand</option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input type="number" id="rightOperand" min="0" placeholder="Enter number">
+        <button onclick="calculate()">Try me!</button>
+    </div>
+
+    <script>
+        function calculate() {
+            let left = document.getElementById("leftOperand").value;
+            let operator = document.getElementById("operator").value;
+            let right = document.getElementById("rightOperand").value;
+
+            if (left === "" || right === "" || left < 0 || right < 0) {
+                alert("Error :(");
+                return;
+            }
+
+            left = parseInt(left);
+            right = parseInt(right);
+            let result;
+
+            if ((operator === '/' || operator === '%') && right === 0) {
+                alert("It's over 9000!");
+                console.log("It's over 9000!");
+                return;
+            }
+
+            switch (operator) {
+                case '+': result = left + right; break;
+                case '-': result = left - right; break;
+                case '*': result = left * right; break;
+                case '/': result = left / right; break;
+                case '%': result = left % right; break;
+            }
+
+            alert("Result: " + result);
+            console.log("Result: " + result);
+        }
+
+        setInterval(() => {
+            alert("Please, use me...");
+        }, 30000);
+    </script>
+</body>
+
+</html>
