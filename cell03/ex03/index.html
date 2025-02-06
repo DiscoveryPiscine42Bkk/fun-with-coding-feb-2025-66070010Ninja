@@ -9,6 +9,12 @@
         body {
             background-color: #2B2E3A;
             margin: 0%;
+            padding: 0%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
 
         h1 {
@@ -32,28 +38,24 @@
             background-color: greenyellow;
         }
 
-        .todo_list {
-            background-color: #5e6377;
-            width: 550px;
-            height: 50px;
-            margin-top: 50px;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 25px;
-        }
-
-        .Task {
-            text-align: center;
+        #ft_list {
+            margin-top: 40px;
+            padding: 20px;
+            border: 1px solid #2c3e50;
+            border-radius: 8px;
+            background-color: #383A40;
+            max-width: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+            color: aliceblue;
         }
     </style>
 </head>
 
 <body>
-    <div class="Task">
-        <h1>Task Manager</h1>
-        <button onclick="addTask()">New</button>
-        <div class="todo_list" id="ft_list"></div>
-    </div>
+    <h1>New Task</h1>
+    <button onclick="newTask()">New</button>
+    <div id="ft_list"></div>
     <script src="todo.js"></script>
 </body>
 
